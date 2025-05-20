@@ -11,7 +11,7 @@ using namespace std;
 
 using ulint = uint64_t;
 
-string get_time(uint64_t time){
+inline string get_time(uint64_t time){
 
 	stringstream ss;
 
@@ -40,7 +40,7 @@ string get_time(uint64_t time){
 
 }
 
-uint8_t bitsize(uint64_t x){
+inline uint8_t bitsize(uint64_t x){
 
 	if(x==0) return 1;
 	return 64 - __builtin_clzll(x);
@@ -48,13 +48,13 @@ uint8_t bitsize(uint64_t x){
 }
 
 //parse pizza&chilli patterns header:
-void header_error(){
+inline void header_error(){
 	cout << "Error: malformed header in patterns file" << endl;
 	cout << "Take a look here for more info on the file format: http://pizzachili.dcc.uchile.cl/experiments.html" << endl;
 	exit(0);
 }
 
-ulint get_number_of_patterns(string header){
+inline ulint get_number_of_patterns(string header){
 
 	ulint start_pos = header.find("number=");
 	if (start_pos == std::string::npos or start_pos+7>=header.size())
@@ -72,7 +72,7 @@ ulint get_number_of_patterns(string header){
 
 }
 
-ulint get_patterns_length(string header){
+inline ulint get_patterns_length(string header){
 
 	ulint start_pos = header.find("length=");
 	if (start_pos == std::string::npos or start_pos+7>=header.size())
